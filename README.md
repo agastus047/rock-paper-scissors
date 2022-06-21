@@ -1,4 +1,4 @@
 # rock-paper-scissors
-Play a round of Rock Paper Scissors game through the console
+Play a round of Rock Paper Scissors game against the computer. The round ends when either of the players have scored five points. 
 
 Link - https://agastus047.github.io/rock-paper-scissors/ 
