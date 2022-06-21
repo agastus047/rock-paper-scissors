@@ -21,9 +21,6 @@ function playRound(e) {
     let playerSelection = this.value;
     playerSelection = playerSelection.toUpperCase();
     let returnValue = '';
-    if (!(playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS")) {
-        returnValue = "Wrong Input";
-    }
     if (computerSelection===playerSelection) {
         ties++;
         returnValue = "Tie";
@@ -31,50 +28,69 @@ function playRound(e) {
     else if (computerSelection === "ROCK") {
         if (playerSelection === "PAPER") {
             wins++;
-            returnValue = "You Win! Paper beats Rock";
+            returnValue = "Paper beats Rock";
         }
         else if (playerSelection === "SCISSORS") {
             loses++;
-            returnValue = "You Lose! Rock beats Scissors";
+            returnValue = "Rock beats Scissors";
         }
     }
     else if (computerSelection === "PAPER") {
         if (playerSelection === "SCISSORS") {
             wins++;
-            returnValue = "You Win! Scissors beat paper";
+            returnValue = "Scissors beat paper";
         }
         else if (playerSelection === "ROCK") {
             loses++;
-            returnValue = "You Lose! Paper beats Rock";
+            returnValue = "Paper beats Rock";
         }
     }
     else if (computerSelection === "SCISSORS") {
         if (playerSelection === "ROCK") {
             wins++;
-            returnValue = "You Win! Rock beats Scissors";
+            returnValue = "Rock beats Scissors";
         }
         else if (playerSelection === "PAPER") {
             loses++;
-            returnValue = "You Lose! Scissors beat Rock";
+            returnValue = "Scissors beat Rock";
         }
     }
+   
     console.log(`${returnValue}\nWins: ${wins}\nLoses: ${loses}\nTies: ${ties}`);
-
-}
-
-//function game() {
-    /*for (let i = 0; i < 5; i++) {
-        let userInput = prompt("Enter Rock, Paper or Scissors");
-        let result = playRound(userInput, computerPlay());
-        console.log(result);
+    round.textContent='';
+    playerChoice.textContent = `Player Choice: ${playerSelection}`;
+    computerChoice.textContent = `Computer Choice: ${computerSelection}`;
+    result.textContent = returnValue;
+    if (wins === 5) {
+        playerChoice.textContent = ``;
+        computerChoice.textContent = ``;
+        result.textContent = ``;
+        round.textContent = `You Win!!\nPlayer Points: ${wins}\nComputer Points: ${loses}\nTies: ${ties}`;
+        wins=0;
+        loses=0;
+        ties=0;
     }
-    console.log("End of Round");
-    console.log(`Wins: ${wins}\nLoses: ${loses}\nTies: ${ties}`);
-    wins = 0;
-    loses = 0;
-    ties = 0;*/
-//}
+    else if (loses === 5) {
+        playerChoice.textContent = ``;
+        computerChoice.textContent = ``;
+        result.textContent = ``;
+        round.textContent = `You Lose!!\nPlayer Points: ${wins}\nComputer Points: ${loses}\nTies: ${ties}`;
+        wins=0;
+        loses=0;
+        ties=0;
+    }
+}
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', playRound);
 });
+const container = document.createElement('div');
+document.body.appendChild(container);
+const playerChoice = document.createElement('div');
+container.appendChild(playerChoice);
+const computerChoice = document.createElement('div');
+container.appendChild(computerChoice);
+const result = document.createElement('div');
+container.appendChild(result);
+const round = document.createElement('div');
+container.appendChild(round);
