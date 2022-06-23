@@ -58,6 +58,9 @@ function playRound(e) {
    
     console.log(`${returnValue}\nWins: ${wins}\nLoses: ${loses}\nTies: ${ties}`);
     round.textContent='';
+    playerPoints.textContent='';
+    computerPoints.textContent='';
+    tiesOP.textContent='';
     playerChoice.textContent = `Player Choice: ${playerSelection}`;
     computerChoice.textContent = `Computer Choice: ${computerSelection}`;
     result.textContent = returnValue;
@@ -65,7 +68,10 @@ function playRound(e) {
         playerChoice.textContent = ``;
         computerChoice.textContent = ``;
         result.textContent = ``;
-        round.textContent = `You Win!!\nPlayer Points: ${wins}\nComputer Points: ${loses}\nTies: ${ties}`;
+        round.textContent = "You Win!!";
+        playerPoints.textContent = `Player Points: ${wins}`;
+        computerPoints.textContent = `Computer Points: ${loses}`;
+        tiesOP.textContent = `Ties: ${ties}`;
         wins=0;
         loses=0;
         ties=0;
@@ -74,7 +80,10 @@ function playRound(e) {
         playerChoice.textContent = ``;
         computerChoice.textContent = ``;
         result.textContent = ``;
-        round.textContent = `You Lose!!\nPlayer Points: ${wins}\nComputer Points: ${loses}\nTies: ${ties}`;
+        round.textContent = `You Lose!!`;
+        playerPoints.textContent = `Player Points: ${wins}`;
+        computerPoints.textContent = `Computer Points: ${loses}`;
+        tiesOP.textContent = `Ties: ${ties}`;
         wins=0;
         loses=0;
         ties=0;
@@ -84,13 +93,11 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', playRound);
 });
-const container = document.createElement('div');
-document.body.appendChild(container);
-const playerChoice = document.createElement('div');
-container.appendChild(playerChoice);
-const computerChoice = document.createElement('div');
-container.appendChild(computerChoice);
-const result = document.createElement('div');
-container.appendChild(result);
-const round = document.createElement('div');
-container.appendChild(round);
+const container = document.querySelector("#container");
+const playerChoice = document.querySelector("#playerChoice");
+const computerChoice = document.querySelector("#computerChoice");
+const result = document.querySelector("#result");
+const round = document.querySelector("#round");
+const playerPoints = document.querySelector("#playerPoints");
+const computerPoints = document.querySelector("#computerPoints");
+const tiesOP = document.querySelector("#tiesOP");
