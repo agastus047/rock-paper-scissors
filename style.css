@@ -2,11 +2,40 @@
     box-sizing: border-box;
     background-color: rgb(186, 240, 247);
     text-align: center;
+    font-family: monospace;
 }
 h1 {
     font-family: monospace;
+    margin-top: 50px;
 }
 button {
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: larger;
+  }
+  .containerRPS {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .containerRPS .element {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .element img {
+    border: 5px solid black;
+    border-radius: 20px;
+  }
+  #container {
+    font-size: larger;
+  }
+  #round {
+    font-weight: bold;
+    font-size: 40px;
   }
