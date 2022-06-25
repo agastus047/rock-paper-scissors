@@ -64,7 +64,7 @@ function playRound(e) {
     playerChoice.textContent = `Player Choice: ${playerSelection}`;
     computerChoice.textContent = `Computer Choice: ${computerSelection}`;
     result.textContent = returnValue;
-    if (wins === 5) {
+    if (wins === 3) {
         playerChoice.textContent = ``;
         computerChoice.textContent = ``;
         result.textContent = ``;
@@ -76,7 +76,7 @@ function playRound(e) {
         loses=0;
         ties=0;
     }
-    else if (loses === 5) {
+    else if (loses === 3) {
         playerChoice.textContent = ``;
         computerChoice.textContent = ``;
         result.textContent = ``;
