@@ -18,7 +18,7 @@ let ties = 0;
 function playRound(e) {
     let computerSelection = computerPlay();
     computerSelection = computerSelection.toUpperCase();
-    let playerSelection = this.value;
+    let playerSelection = this.id;
     playerSelection = playerSelection.toUpperCase();
     let returnValue = '';
     if (computerSelection===playerSelection) {
@@ -89,9 +89,9 @@ function playRound(e) {
         ties=0;
     }
 }
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-    button.addEventListener('click', playRound);
+const elements = document.querySelectorAll('.element');
+elements.forEach(element => {
+    element.addEventListener('click', playRound);
 });
 const container = document.querySelector("#container");
 const playerChoice = document.querySelector("#playerChoice");
